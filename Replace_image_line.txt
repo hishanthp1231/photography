@@ -1,0 +1,145 @@
+📸 Studio 96 — Media & Content Replacement Guide
+All placeholder Unsplash images, Vimeo videos, and dummy text need to be swapped with your client's real assets. Below is every file you need to touch, organized by website section.
+
+TIP
+
+Best practice: Place your client's images in public/images/ (e.g. public/images/gallery/, public/images/hero/) and reference them as /images/gallery/photo1.jpg. This avoids external URL dependency and loads faster.
+
+1. 🎬 Hero — 3D Floating Photos
+FloatingPhotos.tsx
+Line	Current Placeholder	Replace With
+11	photo-1519741497674...	Client's wedding hero photo
+18	photo-1511795409834...	Client's event/reception photo
+25	photo-1522673607200...	Client's couple/portrait photo
+32	photo-1501555088652...	Client's outdoor/landscape photo
+These are the 4 floating 3D photo cards in the hero section.
+
+2. 👤 About — Behind the Lens
+BehindTheLens.tsx
+Line	What to Change	Replace With
+46	photo-1534528741775... (portrait image)	Client's photographer/founder portrait
+8-11	Stats: 500+, 2000+, 15+	Client's real stats (weddings, clients, years)
+80	Bio text paragraph 1	Client's actual studio bio
+87	Bio text paragraph 2	Client's actual studio story
+3. 📅 Story Timeline
+StoryTimeline.tsx
+Line	Current Placeholder	Replace With
+12	photo-1515934751635...	Client's pre-shoot photo
+19	photo-1519741497674...	Client's wedding photo
+26	photo-1511895426328...	Client's family photo
+33	photo-1530103862676...	Client's birthday photo
+40	photo-1516450360452...	Client's 60th celebration photo
+Also update the title and desc text for each timeline event (lines 10-41) with real stories.
+
+4. 🎥 Featured Films (Videos)
+FeaturedFilms.tsx
+Line	What to Change	Replace With
+12	photo-1519741497674... (cover image)	Client's film 1 thumbnail
+13	vimeo.com/video/343806292	Client's actual Vimeo/YouTube embed URL
+10-11	Title: "Elysian Union", Location: "Lake Como"	Real film title & location
+19	photo-1501555088652... (cover image)	Client's film 2 thumbnail
+20	vimeo.com/video/448259074	Client's actual Vimeo/YouTube embed URL
+17-18	Title: "Wild Romance", Location: "Isle of Skye"	Real film title & location
+IMPORTANT
+
+Add more film entries to the FILMS array if the client has more than 2 highlight videos.
+
+5. 🖼️ Gallery
+GalleryData.ts
+12 placeholder images to replace (lines 13-98). Each entry has:
+
+url — Replace with client's photo
+title — Update with real photo title
+category — Keep or adjust: "wedding", "birthday", "outdoor", "preshoot", "puberty"
+aspect — Set to "portrait", "landscape", or "square" based on the actual photo
+IDs	Category	Lines
+gal-wed-1, gal-wed-2, gal-wed-3	Wedding	12-31
+gal-bday-1, gal-bday-2, gal-bday-3	Birthday	34-54
+gal-out-1, gal-out-2	Outdoor	57-70
+gal-pre-1, gal-pre-2	Pre-Shoot	73-86
+gal-pub-1, gal-pub-2	Puberty	89-102
+TIP
+
+You can add or remove entries from this array. The gallery grid adapts automatically.
+
+6. 🌌 Floating Memories
+FloatingMemories.tsx
+6 floating photos to replace:
+
+Line	Replace With
+9	Client's wedding memory
+18	Client's ceremony memory
+27	Client's birthday memory
+36	Client's outdoor memory
+45	Client's pre-shoot memory
+54	Client's event memory
+7. 💬 Testimonials
+TestimonialData.ts
+4 testimonials to replace with real client reviews:
+
+Lines	Fields to Update
+11-18	name, role, quote, img (client 1 avatar/photo)
+19-26	name, role, quote, img (client 2 avatar/photo)
+27-34	name, role, quote, img (client 3 avatar/photo)
+35-42	name, role, quote, img (client 4 avatar/photo)
+8. 📱 Instagram Feed
+InstagramFeed.tsx
+Line	What to Change
+8-11	Replace all 4 url values with client's real Instagram post images
+8-11	Update likes and comments counts
+43	Update @studio96_films to client's real Instagram handle
+38	Update the href="#instagram" to the real Instagram profile URL
+9. 📞 Contact & Social Links
+ContactSection.tsx
+Line	What to Change	Replace With
+57	hello@studio96.com	Client's real email
+58	+1 (800) 969-9696	Client's real phone number
+59	96 Creative Way, Studio District, NY 10013	Client's real address
+87-90	Social link href values (#instagram, #vimeo, etc.)	Real social media URLs
+174	SoHo, Manhattan, NY	Client's real location name
+10. 🏆 Awards
+AwardsShowcase.tsx
+Lines	Fields to Update
+8-11	year, title, issuer, desc for award 1
+13-17	Award 2 details
+19-23	Award 3 details
+Replace with real awards, or remove if the client doesn't have any.
+
+11. 📦 Packages (Pricing & Features)
+PackageData.ts
+Update all package details (lines 14-187):
+
+price — currently all say "Bespoke Pricing", update if client wants real prices
+duration, photos, delivery — update to real offerings
+features array — update to match client's actual service inclusions
+Add/remove packages as needed
+12. 🦶 Footer
+CinematicFooter.tsx
+Line	What to Change
+34	Brand name STUDIO 96
+37	Footer description text
+81-86	Services list items
+13. 🌐 SEO & Metadata
+layout.tsx
+Line	What to Change
+27	title — Site title
+28-29	description — Meta description
+30-36	keywords — SEO keywords
+37	authors — Author name
+39-42	openGraph — OG title & description
+Quick Summary
+Section	File	# of Images	# of Videos	Text Changes
+Hero 3D Photos	FloatingPhotos.tsx	4	—	—
+About	BehindTheLens.tsx	1	—	✅ Bio + Stats
+Timeline	StoryTimeline.tsx	5	—	✅ Titles/Descriptions
+Films	FeaturedFilms.tsx	2	2	✅ Titles/Locations
+Gallery	GalleryData.ts	12	—	✅ Photo Titles
+Memories	FloatingMemories.tsx	6	—	—
+Testimonials	TestimonialData.ts	4	—	✅ Names/Quotes
+Instagram	InstagramFeed.tsx	4	—	✅ Handle/Stats
+Contact	ContactSection.tsx	—	—	✅ Email/Phone/Address
+Awards	AwardsShowcase.tsx	—	—	✅ Award Details
+Packages	PackageData.ts	—	—	✅ Pricing/Features
+Footer	CinematicFooter.tsx	—	—	✅ Brand/Services
+SEO	layout.tsx	—	—	✅ Metadata
+TOTAL	13 files	38 images	2 videos	10 files with text
